@@ -1,33 +1,51 @@
-Feature: Pruebas de Registro y Login de Usuarios
+Feature: User Registration and Login Tests
 
   Background:
     * url  'https://api.demoblaze.com'
-    * def users = read('classpath:karate/data/users.csv')
+    * def responseSuccess = read('classpath:karate/data/response-data-register.json')
 
-  Scenario: Crear un nuevo usuario en signup
+  Scenario Outline: Create a new user
     Given path '/signup'
-    And request { username: '#(users.username[0])', password: '#(users.password[0])' }
+    And request { username: '#(username)', password: '#(password)' }
     When method post
     Then status 201
-    And match response == { message: 'Usuario creado exitosamente' }
+    And match response === { "message": "#string" }
+    Examples:
+      | username | password |
+      | anderson | 123456 |
+      | anderson2 | 123456 |
 
-  Scenario: Intentar crear un usuario ya existente
+
+  Scenario Outline: Try to create an existing user
     Given path '/signup'
-    And request { username: '#(users.username[1])', password: '#(users.password[1])' }
+    And request { username: '#(username)', password: '#(password)' }
     When method post
     Then status 400
-    And match response == { message: 'El usuario ya existe' }
+    And match response == { errorMessage: 'This user already exist.' }
+    Examples:
+      | username  | password |
+      | anderson  | 123456   |
+      | anderson2 | 123456   |
 
-  Scenario: Usuario y contraseña correctos en login
+  Scenario Outline: Correct username and password in login
     Given path '/login'
-    And request { username: '#(users.username[2])', password: '#(users.password[2])' }
+    And request { username: '#(username)', password: '#(password)' }
     When method post
     Then status 200
-    And match response == { message: 'Inicio de sesión exitoso' }
+    And match response === { "Auth_token": "#string" }
 
-  Scenario: Usuario y contraseña incorrectos en login
+    Examples:
+      | username  | password |
+      | anderson  | 123456   |
+      | anderson2 | 123456   |
+
+  Scenario Outline: Incorrect username and password in login
     Given path '/login'
-    And request { username: '#(users.username[3])', password: '#(users.password[3])' }
+    And request { username: '#(username)', password: '#(password)' }
     When method post
     Then status 401
-    And match response == { message: 'Credenciales incorrectas' }
+    And match response == { errorMessage: 'User does not exist."}
+    Examples:
+      | username  | password |
+      | test  | 123456   |
+      | test3 | 123456   |

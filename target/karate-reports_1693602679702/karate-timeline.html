@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/resources\/karate\/registration-login[1:7]","start":1693602613151,"end":1693602614753,"title":"src\/test\/resources\/karate\/registration-login[1:7] 16:10:13.151-16:10:14.753 Create a new user","className":"failed"},{"id":2,"group":1,"content":"src\/test\/resources\/karate\/registration-login[2:14]","start":1693602614763,"end":1693602615164,"title":"src\/test\/resources\/karate\/registration-login[2:14] 16:10:14.763-16:10:15.164 Try to create an existing user","className":"failed"},{"id":3,"group":1,"content":"src\/test\/resources\/karate\/registration-login[3:21]","start":1693602615172,"end":1693602615603,"title":"src\/test\/resources\/karate\/registration-login[3:21] 16:10:15.172-16:10:15.603 Correct username and password in login","className":"failed"},{"id":4,"group":1,"content":"src\/test\/resources\/karate\/registration-login[4:28]","start":1693602615610,"end":1693602616001,"title":"src\/test\/resources\/karate\/registration-login[4:28] 16:10:15.610-16:10:16.001 Incorrect username and password in login","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
