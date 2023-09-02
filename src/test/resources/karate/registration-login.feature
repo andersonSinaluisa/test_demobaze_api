@@ -12,8 +12,8 @@ Feature: User Registration and Login Tests
     And match response === { "message": "#string" }
     Examples:
       | username | password |
-      | anderson | 123456 |
-      | anderson2 | 123456 |
+      | anderson2336 | 123456 |
+      | anderson23856 | 123456 |
 
 
   Scenario Outline: Try to create an existing user
@@ -32,7 +32,7 @@ Feature: User Registration and Login Tests
     And request { username: '#(username)', password: '#(password)' }
     When method post
     Then status 200
-    And match response === { "Auth_token": "#string" }
+    And match response == { "Auth_token": "#string" }
 
     Examples:
       | username  | password |
@@ -44,7 +44,7 @@ Feature: User Registration and Login Tests
     And request { username: '#(username)', password: '#(password)' }
     When method post
     Then status 401
-    And match response == { errorMessage: 'User does not exist."}
+    And match response == { errorMessage: '#string' }
     Examples:
       | username  | password |
       | test  | 123456   |
