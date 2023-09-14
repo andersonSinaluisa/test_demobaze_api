@@ -22,23 +22,23 @@
       <img src="karate-logo.svg" alt="Karate"/>
     </a>
     <div class="nav-count">
-      <div id="nav-pass" class="bg-success">8</div>
-      <div id="nav-fail" class="bg-danger">0</div>
+      <div id="nav-pass" class="bg-success">6</div>
+      <div id="nav-fail" class="bg-danger">2</div>
     </div>
   </div>
   <div id="nav-type">
     <div>Scenarios</div>
   </div>         
   <div id="nav-date">
-    <div>2023-09-14 04:24:25 p. m.</div>
+    <div>2023-09-14 04:23:39 p. m.</div>
   </div>        
 </div>
 
         <div class="nav-container">
-          <div class="nav-item passed">
+          <div class="nav-item failed">
             <a href="#[1.1:15]"><span>[1.1:15]</span> <span>Create a new user</span></a>
           </div>
-          <div class="nav-item passed">
+          <div class="nav-item failed">
             <a href="#[1.2:16]"><span>[1.2:16]</span> <span>Create a new user</span></a>
           </div>
           <div class="nav-item passed">
@@ -82,8 +82,8 @@
                 <span></span>
               </div>
             </div>
-            <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>1346</span>
+            <div class="scenario-time failed">
+              <span>ms:</span>&nbsp;<span>1143</span>
             </div>
           </div>
           <div class="step-row">
@@ -106,7 +106,7 @@
         <span>*</span>&nbsp;<span>url  &#39;https://api.demoblaze.com&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">108</div>
+    <div class="time-cell passed">58</div>
   </div>
 
    
@@ -134,7 +134,7 @@
         <span>*</span>&nbsp;<span>def responseSuccess = read(&#39;classpath:karate/data/response-data-register.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">155</div>
+    <div class="time-cell passed">115</div>
   </div>
 
    
@@ -190,7 +190,7 @@
         <span>And</span>&nbsp;<span>request { username: &#39;#(username)&#39;, password: &#39;#(password)&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">2</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -218,7 +218,7 @@
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">1065</div>
+    <div class="time-cell passed">957</div>
   </div>
 
    
@@ -227,24 +227,26 @@
 
   
 
-  <div class="preformatted" data-parent="1.10">16:24:22.539 request:
+  <div class="preformatted" data-parent="1.10">16:23:35.588 request:
 1 &gt; POST https://api.demoblaze.com/signup
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 51
+1 &gt; Content-Length: 56
 1 &gt; Host: api.demoblaze.com
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.8)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;username&quot;:&quot;user_test_admin1&quot;,&quot;password&quot;:&quot;123456&quot;}
+{&quot;username&quot;:&quot;new_user_admin_test21&quot;,&quot;password&quot;:&quot;123456&quot;}
 
-16:24:23.182 response time in milliseconds: 643
+16:23:36.167 response time in milliseconds: 579
 1 &lt; 200
 1 &lt; Content-Type: application/json
-1 &lt; X-Cloud-Trace-Context: 171ab08df3da1a7c80fd68be235a3e78
-1 &lt; Date: Thu, 14 Sep 2023 21:24:22 GMT
+1 &lt; Vary: Accept-Encoding
+1 &lt; X-Cloud-Trace-Context: 7bd1d1b4fe681132fb2715af519f9a81
+1 &lt; Date: Thu, 14 Sep 2023 21:23:35 GMT
 1 &lt; Server: Google Frontend
-1 &lt; Content-Length: 3
-&quot;&quot;
+1 &lt; Cache-Control: private
+1 &lt; Transfer-Encoding: chunked
+{&quot;errorMessage&quot;:&quot;This user already exist.&quot;}
 
 </div>   
 
@@ -287,13 +289,13 @@
 
   <div class="step-row">
     <div class="step-container" id="1.12">
-      <div class="step-ref passed">12</div>
+      <div class="step-ref failed">12</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell failed">
         <span>And</span>&nbsp;<span>match response == &#39;#string&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">16</div>
+    <div class="time-cell failed">11</div>
   </div>
 
    
@@ -302,7 +304,15 @@
 
   
 
-     
+  <div class="preformatted" data-parent="1.12">16:23:36.167 src/test/resources/karate/registration-login.feature:12
+And match response == &#39;#string&#39;
+match failed: EQUALS
+  $ | not a string (MAP:STRING)
+  {&quot;errorMessage&quot;:&quot;This user already exist.&quot;}
+  &#39;#string&#39;
+
+src/test/resources/karate/registration-login.feature:12
+</div>   
 
   
 
@@ -321,8 +331,8 @@
                 <span></span>
               </div>
             </div>
-            <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>406</span>
+            <div class="scenario-time failed">
+              <span>ms:</span>&nbsp;<span>374</span>
             </div>
           </div>
           <div class="step-row">
@@ -345,7 +355,7 @@
         <span>*</span>&nbsp;<span>url  &#39;https://api.demoblaze.com&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -457,7 +467,7 @@
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">403</div>
+    <div class="time-cell passed">370</div>
   </div>
 
    
@@ -466,24 +476,26 @@
 
   
 
-  <div class="preformatted" data-parent="2.10">16:24:23.221 request:
+  <div class="preformatted" data-parent="2.10">16:23:36.190 request:
 1 &gt; POST https://api.demoblaze.com/signup
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 52
+1 &gt; Content-Length: 56
 1 &gt; Host: api.demoblaze.com
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.8)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;username&quot;:&quot;user_test_admin15&quot;,&quot;password&quot;:&quot;123456&quot;}
+{&quot;username&quot;:&quot;new_user_admin_test22&quot;,&quot;password&quot;:&quot;123456&quot;}
 
-16:24:23.622 response time in milliseconds: 401
+16:23:36.558 response time in milliseconds: 368
 1 &lt; 200
 1 &lt; Content-Type: application/json
-1 &lt; X-Cloud-Trace-Context: 3b2e2bb051b2e45f8aedaf1065b5e1b9
-1 &lt; Date: Thu, 14 Sep 2023 21:24:23 GMT
+1 &lt; Vary: Accept-Encoding
+1 &lt; X-Cloud-Trace-Context: 651709cfe5eeb628cd7568798fdcb331
+1 &lt; Date: Thu, 14 Sep 2023 21:23:36 GMT
 1 &lt; Server: Google Frontend
-1 &lt; Content-Length: 3
-&quot;&quot;
+1 &lt; Cache-Control: private
+1 &lt; Transfer-Encoding: chunked
+{&quot;errorMessage&quot;:&quot;This user already exist.&quot;}
 
 </div>   
 
@@ -526,13 +538,13 @@
 
   <div class="step-row">
     <div class="step-container" id="2.12">
-      <div class="step-ref passed">12</div>
+      <div class="step-ref failed">12</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell failed">
         <span>And</span>&nbsp;<span>match response == &#39;#string&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell failed">0</div>
   </div>
 
    
@@ -541,7 +553,15 @@
 
   
 
-     
+  <div class="preformatted" data-parent="2.12">16:23:36.558 src/test/resources/karate/registration-login.feature:12
+And match response == &#39;#string&#39;
+match failed: EQUALS
+  $ | not a string (MAP:STRING)
+  {&quot;errorMessage&quot;:&quot;This user already exist.&quot;}
+  &#39;#string&#39;
+
+src/test/resources/karate/registration-login.feature:12
+</div>   
 
   
 
@@ -561,7 +581,7 @@
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>404</span>
+              <span>ms:</span>&nbsp;<span>445</span>
             </div>
           </div>
           <div class="step-row">
@@ -668,7 +688,7 @@
         <span>And</span>&nbsp;<span>request { username: &#39;#(username)&#39;, password: &#39;#(password)&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -696,7 +716,7 @@
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">401</div>
+    <div class="time-cell passed">443</div>
   </div>
 
    
@@ -705,7 +725,7 @@
 
   
 
-  <div class="preformatted" data-parent="1.22">16:24:23.632 request:
+  <div class="preformatted" data-parent="1.22">16:23:36.567 request:
 1 &gt; POST https://api.demoblaze.com/signup
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 43
@@ -715,12 +735,12 @@
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;username&quot;:&quot;anderson&quot;,&quot;password&quot;:&quot;123456&quot;}
 
-16:24:24.027 response time in milliseconds: 395
+16:23:37.011 response time in milliseconds: 444
 1 &lt; 200
 1 &lt; Content-Type: application/json
 1 &lt; Vary: Accept-Encoding
-1 &lt; X-Cloud-Trace-Context: 62386293182dd39eaebb3f1d4a10b8e6
-1 &lt; Date: Thu, 14 Sep 2023 21:24:23 GMT
+1 &lt; X-Cloud-Trace-Context: 4c33cafaf7c7629723763f33eca62494
+1 &lt; Date: Thu, 14 Sep 2023 21:23:36 GMT
 1 &lt; Server: Google Frontend
 1 &lt; Cache-Control: private
 1 &lt; Transfer-Encoding: chunked
@@ -773,7 +793,7 @@
         <span>And</span>&nbsp;<span>match response == { errorMessage: &#39;This user already exist.&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -802,7 +822,7 @@
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>352</span>
+              <span>ms:</span>&nbsp;<span>356</span>
             </div>
           </div>
           <div class="step-row">
@@ -937,7 +957,7 @@
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">350</div>
+    <div class="time-cell passed">354</div>
   </div>
 
    
@@ -946,7 +966,7 @@
 
   
 
-  <div class="preformatted" data-parent="2.22">16:24:24.035 request:
+  <div class="preformatted" data-parent="2.22">16:23:37.020 request:
 1 &gt; POST https://api.demoblaze.com/signup
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 44
@@ -956,12 +976,12 @@
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;username&quot;:&quot;anderson2&quot;,&quot;password&quot;:&quot;123456&quot;}
 
-16:24:24.386 response time in milliseconds: 351
+16:23:37.366 response time in milliseconds: 346
 1 &lt; 200
 1 &lt; Content-Type: application/json
 1 &lt; Vary: Accept-Encoding
-1 &lt; X-Cloud-Trace-Context: 8285f2035af98f71ef4918a4a56097c5
-1 &lt; Date: Thu, 14 Sep 2023 21:24:23 GMT
+1 &lt; X-Cloud-Trace-Context: 273f10a9d10c8797eb572ed2895f0155
+1 &lt; Date: Thu, 14 Sep 2023 21:23:36 GMT
 1 &lt; Server: Google Frontend
 1 &lt; Cache-Control: private
 1 &lt; Transfer-Encoding: chunked
@@ -1043,7 +1063,7 @@
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>386</span>
+              <span>ms:</span>&nbsp;<span>415</span>
             </div>
           </div>
           <div class="step-row">
@@ -1178,7 +1198,7 @@
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">383</div>
+    <div class="time-cell passed">413</div>
   </div>
 
    
@@ -1187,7 +1207,7 @@
 
   
 
-  <div class="preformatted" data-parent="1.33">16:24:24.386 request:
+  <div class="preformatted" data-parent="1.33">16:23:37.377 request:
 1 &gt; POST https://api.demoblaze.com/login
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 48
@@ -1197,12 +1217,12 @@
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;username&quot;:&quot;andersonstest&quot;,&quot;password&quot;:&quot;123456&quot;}
 
-16:24:24.776 response time in milliseconds: 390
+16:23:37.791 response time in milliseconds: 414
 1 &lt; 200
 1 &lt; Content-Type: application/json
 1 &lt; Vary: Accept-Encoding
-1 &lt; X-Cloud-Trace-Context: 7d4e0cbe6ba09216bf4319d33a716e0f
-1 &lt; Date: Thu, 14 Sep 2023 21:24:24 GMT
+1 &lt; X-Cloud-Trace-Context: 4f01e4b2a8655f5e7b3bd1c21b2a08ae
+1 &lt; Date: Thu, 14 Sep 2023 21:23:37 GMT
 1 &lt; Server: Google Frontend
 1 &lt; Cache-Control: private
 1 &lt; Transfer-Encoding: chunked
@@ -1284,7 +1304,7 @@
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>396</span>
+              <span>ms:</span>&nbsp;<span>494</span>
             </div>
           </div>
           <div class="step-row">
@@ -1307,7 +1327,7 @@
         <span>*</span>&nbsp;<span>url  &#39;https://api.demoblaze.com&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1335,7 +1355,7 @@
         <span>*</span>&nbsp;<span>def responseSuccess = read(&#39;classpath:karate/data/response-data-register.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1419,7 +1439,7 @@
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">393</div>
+    <div class="time-cell passed">493</div>
   </div>
 
    
@@ -1428,7 +1448,7 @@
 
   
 
-  <div class="preformatted" data-parent="2.33">16:24:24.784 request:
+  <div class="preformatted" data-parent="2.33">16:23:37.791 request:
 1 &gt; POST https://api.demoblaze.com/login
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 44
@@ -1438,12 +1458,12 @@
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;username&quot;:&quot;anderson2&quot;,&quot;password&quot;:&quot;123456&quot;}
 
-16:24:25.175 response time in milliseconds: 391
+16:23:38.281 response time in milliseconds: 490
 1 &lt; 200
 1 &lt; Content-Type: application/json
 1 &lt; Vary: Accept-Encoding
-1 &lt; X-Cloud-Trace-Context: 683fae30fbe1817b1f53f4387cb6bb12
-1 &lt; Date: Thu, 14 Sep 2023 21:24:24 GMT
+1 &lt; X-Cloud-Trace-Context: ecbe63f8444f4832e50548862e219bc4
+1 &lt; Date: Thu, 14 Sep 2023 21:23:37 GMT
 1 &lt; Server: Google Frontend
 1 &lt; Cache-Control: private
 1 &lt; Transfer-Encoding: chunked
@@ -1496,7 +1516,7 @@
         <span>And</span>&nbsp;<span>match response contains &quot;Auth_token&quot;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1525,7 +1545,7 @@
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>416</span>
+              <span>ms:</span>&nbsp;<span>361</span>
             </div>
           </div>
           <div class="step-row">
@@ -1660,7 +1680,7 @@
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">413</div>
+    <div class="time-cell passed">358</div>
   </div>
 
    
@@ -1669,7 +1689,7 @@
 
   
 
-  <div class="preformatted" data-parent="1.45">16:24:25.184 request:
+  <div class="preformatted" data-parent="1.45">16:23:38.295 request:
 1 &gt; POST https://api.demoblaze.com/login
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 39
@@ -1679,12 +1699,12 @@
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;username&quot;:&quot;test&quot;,&quot;password&quot;:&quot;123456&quot;}
 
-16:24:25.596 response time in milliseconds: 412
+16:23:38.639 response time in milliseconds: 344
 1 &lt; 200
 1 &lt; Content-Type: application/json
 1 &lt; Vary: Accept-Encoding
-1 &lt; X-Cloud-Trace-Context: 148a8876ddb5c1b089bab4d5df65eb04
-1 &lt; Date: Thu, 14 Sep 2023 21:24:25 GMT
+1 &lt; X-Cloud-Trace-Context: 4be6e7d96ed095b5bb21f620bd5049ba
+1 &lt; Date: Thu, 14 Sep 2023 21:23:38 GMT
 1 &lt; Server: Google Frontend
 1 &lt; Cache-Control: private
 1 &lt; Transfer-Encoding: chunked
@@ -1766,7 +1786,7 @@
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>337</span>
+              <span>ms:</span>&nbsp;<span>413</span>
             </div>
           </div>
           <div class="step-row">
@@ -1873,7 +1893,7 @@
         <span>And</span>&nbsp;<span>request { username: &#39;#(username)&#39;, password: &#39;#(password)&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1901,7 +1921,7 @@
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">334</div>
+    <div class="time-cell passed">412</div>
   </div>
 
    
@@ -1910,7 +1930,7 @@
 
   
 
-  <div class="preformatted" data-parent="2.45">16:24:25.605 request:
+  <div class="preformatted" data-parent="2.45">16:23:38.654 request:
 1 &gt; POST https://api.demoblaze.com/login
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 40
@@ -1920,12 +1940,12 @@
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;username&quot;:&quot;test3&quot;,&quot;password&quot;:&quot;123456&quot;}
 
-16:24:25.923 response time in milliseconds: 318
+16:23:39.059 response time in milliseconds: 405
 1 &lt; 200
 1 &lt; Content-Type: application/json
 1 &lt; Vary: Accept-Encoding
-1 &lt; X-Cloud-Trace-Context: 25ab80344e70e90a2a6e89284d1064c0
-1 &lt; Date: Thu, 14 Sep 2023 21:24:25 GMT
+1 &lt; X-Cloud-Trace-Context: 9f4842454f83c164e2ceeb99e4ae7bf4
+1 &lt; Date: Thu, 14 Sep 2023 21:23:38 GMT
 1 &lt; Server: Google Frontend
 1 &lt; Cache-Control: private
 1 &lt; Transfer-Encoding: chunked
@@ -1978,7 +1998,7 @@
         <span>And</span>&nbsp;<span>match response == { errorMessage: &#39;#string&#39;}</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    

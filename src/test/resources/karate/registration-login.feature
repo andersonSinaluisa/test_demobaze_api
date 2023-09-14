@@ -12,8 +12,8 @@ Feature: User Registration and Login Tests
     And match response == '#string'
     Examples:
       | username | password |
-      | new_user_admin_test21 | 123456 |
-      | new_user_admin_test22 | 123456 |
+      | user_test_admin152 | 123456 |
+      | user_test_admin215 | 123456 |
 
 
   Scenario Outline: Try to create an existing user
